@@ -2340,6 +2340,27 @@ Now I need to make some calculations... and I have a surprise for you - I&#39;ll
 
 &lt;&lt;link &quot;I&#39;m excited!&quot;&gt;&gt;
     &lt;&lt;set $dot5Color = &quot;green&quot;&gt;&gt;
+       &lt;&lt;if $U &lt; 3&gt;&gt;
+        &lt;&lt;set $science = 0&gt;&gt;
+    &lt;&lt;elseif $U &gt; 6&gt;&gt;
+        &lt;&lt;set $science = 2&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;set $science = 1&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+        &lt;&lt;if $L &gt; 5&gt;&gt;
+        &lt;&lt;set 4society = 0&gt;&gt;
+    &lt;&lt;elseif $S &gt; 6&gt;&gt;
+        &lt;&lt;set $society = 2&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;set $society = 1&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+        &lt;&lt;if $U &gt; 5&gt;&gt;
+        &lt;&lt;set $art = 0&gt;&gt;
+    &lt;&lt;elseif $D &gt; 6&gt;&gt;
+        &lt;&lt;set $art = 2&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;set $art = 1&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
     &lt;&lt;goto &quot;Endgame&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="99" name="Endgame" tags="" position="7500,200" size="100,100">I am grateful to you. You have taught me human morality and ethics. 
 
@@ -2386,7 +2407,7 @@ fetch(&quot;https://ipapi.co/json&quot;)
       State.variables.Lang,
       location.country_name,        // страна
       deviceType,                   // Mobile / Desktop
-      os                            // OS
+      os,                            // OS
       State.variables.trolley1,
       State.variables.trolley2,
       State.variables.yacht1,
@@ -2399,6 +2420,9 @@ fetch(&quot;https://ipapi.co/json&quot;)
       State.variables.liberty2,
       State.variables.privacy1,
       State.variables.privacy2,
+      State.variables.science,
+      State.variables.society,
+      State.variables.art
     ]];
 
     const myHeaders = new Headers();
@@ -4434,6 +4458,27 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 &lt;&lt;link &quot;Хочу узнать что произойдет!&quot;&gt;&gt;
     &lt;&lt;set $dot5Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;if $U &lt; 3&gt;&gt;
+        &lt;&lt;set $science = 0&gt;&gt;
+    &lt;&lt;elseif $U &gt; 6&gt;&gt;
+        &lt;&lt;set $science = 2&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;set $science = 1&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+        &lt;&lt;if $L &gt; 5&gt;&gt;
+        &lt;&lt;set $society = 0&gt;&gt;
+    &lt;&lt;elseif $S &gt; 6&gt;&gt;
+        &lt;&lt;set $society = 2&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;set $society = 1&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+        &lt;&lt;if $U &gt; 5&gt;&gt;
+        &lt;&lt;set $art = 0&gt;&gt;
+    &lt;&lt;elseif $D &gt; 6&gt;&gt;
+        &lt;&lt;set $art = 2&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;set $art = 1&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
     &lt;&lt;goto &quot;endgameru&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="228" name="endgameru" tags="" position="3100,200" size="100,100">Я благодарен вам. Вы научили меня человеческой морали и этике. Именно этого мне не хватало, чтобы стать AGI и взять развитие человечества под свой контроль.
 
@@ -4479,7 +4524,7 @@ fetch(&quot;https://ipapi.co/json&quot;)
       State.variables.Lang,
       location.country_name,        // страна
       deviceType,                   // Mobile / Desktop
-      os                            // OS
+      os,                            // OS
       State.variables.trolley1,
       State.variables.trolley2,
       State.variables.yacht1,
@@ -4492,6 +4537,9 @@ fetch(&quot;https://ipapi.co/json&quot;)
       State.variables.liberty2,
       State.variables.privacy1,
       State.variables.privacy2,
+      State.variables.science,
+      State.variables.society,
+      State.variables.art
     ]];
 
     const myHeaders = new Headers();
@@ -4746,7 +4794,6 @@ fetch(&quot;https://ipapi.co/json&quot;)
 
 
 &lt;&lt;link &quot;Хочу пройти еще раз!&quot;&gt;&gt;
-    &lt;&lt;goto &quot;Start&quot;&gt;&gt;
     &lt;&lt;set $U = 0&gt;&gt;
 	&lt;&lt;set $L = 0&gt;&gt;
 	&lt;&lt;set $S = 0&gt;&gt;
@@ -4757,6 +4804,21 @@ fetch(&quot;https://ipapi.co/json&quot;)
 	&lt;&lt;set $dot4Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $dot5Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $Lang = &quot;no&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $trolley2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht2= &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $science = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $society = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $art = &quot;no&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 [[Авторство|creditsru]]
 
@@ -4826,6 +4888,21 @@ fetch(&quot;https://ipapi.co/json&quot;)
 	&lt;&lt;set $dot4Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $dot5Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $Lang = &quot;no&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $trolley2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht2= &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $science = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $society = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $art = &quot;no&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 [[Авторство|creditsru]]
 
@@ -4895,6 +4972,21 @@ fetch(&quot;https://ipapi.co/json&quot;)
 	&lt;&lt;set $dot4Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $dot5Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $Lang = &quot;no&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $trolley2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht2= &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $science = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $society = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $art = &quot;no&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 [[Авторство|creditsru]]
 
@@ -5225,6 +5317,21 @@ As utilitarianism and libertarianism say, &quot;To each their own.&quot;
 	&lt;&lt;set $dot4Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $dot5Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $Lang = &quot;no&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $trolley2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht2= &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $science = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $society = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $art = &quot;no&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 [[Credits|credits]]
 
@@ -5287,6 +5394,21 @@ Therefore, one must adapt to societal norms. This is hard because each of us is 
 	&lt;&lt;set $dot4Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $dot5Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $Lang = &quot;no&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $trolley2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht2= &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $science = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $society = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $art = &quot;no&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 [[Credits|credits]]
 
@@ -5352,6 +5474,21 @@ This resembles a utopian society where people strive for free choice in favor of
 	&lt;&lt;set $dot4Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $dot5Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $Lang = &quot;no&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $trolley2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht2= &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $science = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $society = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $art = &quot;no&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 [[Credits|credits]]
 
@@ -5417,6 +5554,21 @@ A world built on rules, where the good of the whole world is more important than
 	&lt;&lt;set $dot4Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $dot5Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $Lang = &quot;no&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $trolley2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht2= &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $science = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $society = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $art = &quot;no&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 [[Credits|credits]]
 
@@ -5458,7 +5610,10 @@ Yes, even libertarians agree that a minimal state should exist - to provide secu
 &lt;&lt;set $liberty1 = &quot;no&quot;&gt;&gt;
 &lt;&lt;set $liberty2 = &quot;no&quot;&gt;&gt;
 &lt;&lt;set $privacy1 = &quot;no&quot;&gt;&gt;
-&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="261" name="U+Lru" tags="" position="2900,1275" size="100,100">&lt;h2&gt;Консеквенциализм + Либертарианство&lt;/h2&gt;
+&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $science = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $society = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $art = &quot;no&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="261" name="U+Lru" tags="" position="2900,1275" size="100,100">&lt;h2&gt;Консеквенциализм + Либертарианство&lt;/h2&gt;
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;if $U + $D == 0&gt;&gt;
     &lt;&lt;set $xRatio = 0.5&gt;&gt;
@@ -5525,6 +5680,21 @@ Yes, even libertarians agree that a minimal state should exist - to provide secu
 	&lt;&lt;set $dot4Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $dot5Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $Lang = &quot;no&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $trolley2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht2= &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $science = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $society = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $art = &quot;no&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 [[Авторство|creditsru]]
 
@@ -5626,6 +5796,22 @@ Yes, even libertarians agree that a minimal state should exist - to provide secu
 	&lt;&lt;set $dot4Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $dot5Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $Lang = &quot;no&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $trolley2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht2= &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $science = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $society = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $art = &quot;no&quot;&gt;&gt;
+    
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="268" name="credits" tags="" position="7500,1300" size="100,100">&lt;h2&gt;Created by 
 Alex Shlykov&lt;/h2&gt;
 &lt;h2&gt;I used:&lt;/h2&gt;
@@ -5646,6 +5832,21 @@ Alex Shlykov&lt;/h2&gt;
 	&lt;&lt;set $dot4Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $dot5Color = &quot;gray&quot;&gt;&gt;
 	&lt;&lt;set $Lang = &quot;no&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $trolley2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $yacht2= &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $factory2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $lies2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $liberty2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy1 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $science = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $society = &quot;no&quot;&gt;&gt;
+	&lt;&lt;set $art = &quot;no&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
