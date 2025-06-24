@@ -1,34 +1,8 @@
 <!DOCTYPE html>
 <html data-init="no-js">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DP65GTYG1C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DP65GTYG1C');
-</script>
-	
 <meta charset="UTF-8" />
 <title>The Choice: Moral Dilemma Game</title>
-
-<!-- Open Graph -->
-<meta property="og:title" content="The Choice: Moral Dilemma Game">
-<meta property="og:description" content="An interactive journey through the basics of moral philosophy">
-<meta property="og:image" content="assets/preview.png">
-<meta property="og:url" content="https://alekseyshlykov.github.io/The-Choice/">
-<meta property="og:type" content="website">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Choice: Moral Dilemma Game">
-<meta name="twitter:description" content="An interactive journey through the basics of moral philosophy">
-<meta name="twitter:image" content="assets/preview.png">
-
-<link rel="icon" type="image/png" href="assets/favicon.png">
-
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="application-name" content="SugarCube" />
 <meta name="version" content="2.37.3" />
@@ -994,11 +968,13 @@ What do you think - are they guilty?
 
 &lt;&lt;link &quot;Gulty.&quot;&gt;&gt;
     &lt;&lt;set $S += 1&gt;&gt;
+    &lt;&lt;set $yacht1 = 1&gt;&gt;
     &lt;&lt;goto &quot;moral&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 
 &lt;&lt;link &quot;Not guilty.&quot;&gt;&gt;
     &lt;&lt;set $L += 1&gt;&gt;
+    &lt;&lt;set $yacht1 = 0&gt;&gt;
     &lt;&lt;goto &quot;moral&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="20" name="moral" tags="" position="4900,1675" size="100,100">&lt;img src=&quot;assets/yacht2.png&quot; class=&quot;img&quot;&gt;
@@ -1017,10 +993,12 @@ But on the other hand, if we always justify killing the few for the sake of the 
 
 &lt;&lt;link &quot;It contradicts morality&quot;&gt;&gt;
     &lt;&lt;set $D += 1&gt;&gt;
+    &lt;&lt;set $yacht2 = 1&gt;&gt;
     &lt;&lt;goto &quot;moral2&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;This is a moral act.&quot;&gt;&gt;
     &lt;&lt;set $U += 1.5&gt;&gt;
+    &lt;&lt;set $yacht2 = 0&gt;&gt;
     &lt;&lt;goto &quot;moral2&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="21" name="moral2" tags="" position="4900,1875" size="100,100">&lt;img src=&quot;assets/yacht2.png&quot; class=&quot;img&quot;&gt;
@@ -1035,7 +1013,9 @@ Some core moral principles are beginning to take shape in my understanding. I’
 
 
 
-[[What are they?]]</tw-passagedata><tw-passagedata pid="22" name="What are they?" tags="" position="4900,2000" size="100,100">The first of these is Consequentialism.
+[[What are they?]]</tw-passagedata><tw-passagedata pid="22" name="What are they?" tags="" position="4900,2000" size="100,100">&lt;img src=&quot;assets/yacht2.png&quot; class=&quot;img&quot;&gt;
+
+The first of these is Consequentialism.
 
 We judge whether an action is morally right based on its outcomes. If someone is going to die either way, then it’s better to save five people rather than one.
 
@@ -1051,7 +1031,9 @@ You focus on the result. A classic example of this line of thinking is utilitari
 
 
 
-</tw-passagedata><tw-passagedata pid="23" name="And what&#39;s the second one?" tags="" position="4900,2125" size="100,100">The second approach is Deontology.
+</tw-passagedata><tw-passagedata pid="23" name="And what&#39;s the second one?" tags="" position="4900,2125" size="100,100">&lt;img src=&quot;assets/yacht2.png&quot; class=&quot;img&quot;&gt;
+
+The second approach is Deontology.
 
 As we&#39;ve seen, utilitarian reasoning may seem logical—but many people, when imagining themselves as part of the potential minority, start to hesitate. They stop focusing solely on outcomes and begin to consider the nature of the action itself.
 
@@ -1070,7 +1052,9 @@ This approach is based on categorical imperatives—unconditional moral rules th
 
 
 
-</tw-passagedata><tw-passagedata pid="24" name="Interesting." tags="" position="4900,2250" size="100,100">Now that we’ve explored these approaches a bit more - which one feels closer to your moral?
+</tw-passagedata><tw-passagedata pid="24" name="Interesting." tags="" position="4900,2250" size="100,100">&lt;img src=&quot;assets/yacht2.png&quot; class=&quot;img&quot;&gt;
+
+Now that we’ve explored these approaches a bit more - which one feels closer to your moral?
    
    
    
@@ -1087,7 +1071,9 @@ This approach is based on categorical imperatives—unconditional moral rules th
     &lt;&lt;set $D += 1&gt;&gt;
     &lt;&lt;goto &quot;ready1&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="25" name="ready1" tags="" position="5025,2375" size="100,100">Are you ready for a new dilemma?
+</tw-passagedata><tw-passagedata pid="25" name="ready1" tags="" position="5025,2375" size="100,100">&lt;img src=&quot;assets/yacht2.png&quot; class=&quot;img&quot;&gt;
+
+Are you ready for a new dilemma?
    
    
    
@@ -1195,10 +1181,12 @@ Financial analyst: Let me remind you - if you spend $137 million, you’ll go fr
 
 &lt;&lt;link &quot;We’re not going to do anything. This is more reasonable.&quot;&gt;&gt;
     &lt;&lt;set $U += 1&gt;&gt;
+    &lt;&lt;set $factory1 = 1&gt;&gt;
     &lt;&lt;goto &quot;factory3&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;We should recall all the cars and install the protective parts.&quot;&gt;&gt;
     &lt;&lt;set $D += 1&gt;&gt;
+    &lt;&lt;set $factory1 = 0&gt;&gt;
     &lt;&lt;goto &quot;factory3&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="33" name="factory3" tags="" position="5425,1075" size="100,100">&lt;img src=&quot;assets/factory2.png&quot; class=&quot;img&quot;&gt;
@@ -1232,11 +1220,13 @@ But knowing all this now - what decision would you have made?
 
 &lt;&lt;link &quot;Install the protection.&quot;&gt;&gt;
     &lt;&lt;set $S += 0.5&gt;&gt;
+    &lt;&lt;set $factory2 = 1&gt;&gt;
     &lt;&lt;goto &quot;Install the protection.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Do nothing.&quot;&gt;&gt;
     &lt;&lt;set $L += 0.5&gt;&gt;
     &lt;&lt;set $U += 0.5&gt;&gt;
+    &lt;&lt;set $factory2 = 0&gt;&gt;
     &lt;&lt;goto &quot;Do nothing.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 
@@ -1321,7 +1311,9 @@ So refusing to do this kind of analysis might actually mean ignoring what’s be
 
 
 
-[[And what philosophers says?|Utilitarism]]</tw-passagedata><tw-passagedata pid="39" name="Utilitarism" tags="" position="5525,1750" size="100,100">The philosophy of utilitarianism emerged in the 19th century, developed by Jeremy Bentham. He summed it up simply as: &#39;the greatest happiness for the greatest number of individuals.&#39;
+[[And what philosophers says?|Utilitarism]]</tw-passagedata><tw-passagedata pid="39" name="Utilitarism" tags="" position="5525,1750" size="100,100">&lt;img src=&quot;assets/factory2.png&quot; class=&quot;img&quot;&gt;
+
+The philosophy of utilitarianism emerged in the 19th century, developed by Jeremy Bentham. He summed it up simply as: &#39;the greatest happiness for the greatest number of individuals.&#39;
 
 Thanks to your choices, I think I’m starting to understand how utilitarianism works!
 
@@ -1531,10 +1523,12 @@ Kant: Let’s take our example with lying. What would happen if everyone around 
 
 &lt;&lt;link &quot;Yes, that makes sense.&quot;&gt;&gt;
     &lt;&lt;set $D += 1&gt;&gt;
+    &lt;&lt;set $lies1 = 1&gt;&gt;
     &lt;&lt;goto &quot;Yes, that makes sense.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;But I still disagree. Not all lies are the same.&quot;&gt;&gt;
     &lt;&lt;set $U += 0.5&gt;&gt;
+    &lt;&lt;set $lies1 = 0&gt;&gt;
     &lt;&lt;goto &quot;But I still disagree. Not all lies are the same.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="52" name="Yes, that makes sense." tags="" position="5900,1200" size="100,100">&lt;img src=&quot;assets/deontology2.png&quot; class=&quot;img&quot;&gt;
@@ -1651,13 +1645,17 @@ Kant: Have I convinced you that my approach to morality is more applicable than 
 
 &lt;&lt;link &quot;Yes, I agree with you.&quot;&gt;&gt;
     &lt;&lt;set $D += 1&gt;&gt;
+    &lt;&lt;set $lies2 = 1&gt;&gt;
     &lt;&lt;goto &quot;deontology10&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;I still find their approach more appealing.&quot;&gt;&gt;
     &lt;&lt;set $U += 0.5&gt;&gt;
+    &lt;&lt;set $lies2 = 0&gt;&gt;
     &lt;&lt;goto &quot;deontology10&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="60" name="deontology10" tags="" position="6050,2075" size="100,100">AI: Yes, I’ve even understood the difference now - and I’ve recorded the algorithms of humanity.
+</tw-passagedata><tw-passagedata pid="60" name="deontology10" tags="" position="6050,2075" size="100,100">&lt;img src=&quot;assets/deontology2.png&quot; class=&quot;img&quot;&gt;
+
+AI: Yes, I’ve even understood the difference now - and I’ve recorded the algorithms of humanity.
 
 But I still have questions about freedom. Let’s dive into that - and into the libertarians!
    
@@ -1712,10 +1710,12 @@ What’s your opinion on that?
 
 &lt;&lt;link &quot;I shouldn&#39;t have to pay more taxes than everyone else.&quot;&gt;&gt;
     &lt;&lt;set $L += 1&gt;&gt;
+    &lt;&lt;set $liberty1 = 1&gt;&gt;
     &lt;&lt;goto &quot;I shouldn&#39;t have to pay more taxes than everyone else.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Taxes are my payment to society since I live in it.&quot;&gt;&gt;
     &lt;&lt;set $S += 1&gt;&gt;
+    &lt;&lt;set $liberty1 = 0&gt;&gt;
     &lt;&lt;goto &quot;Taxes are my payment to society since I live in it.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="64" name="I shouldn&#39;t have to pay more taxes than everyone else." tags="" position="6225,575" size="100,100">&lt;img src=&quot;assets/taxes2.png&quot; class=&quot;img&quot;&gt;
@@ -1944,10 +1944,12 @@ So, does that mean seat belts are also a limitation of freedom?
 
 &lt;&lt;link &quot;Yes, absolutely.&quot;&gt;&gt;
     &lt;&lt;set $L += 0.5&gt;&gt;
+    &lt;&lt;set $liberty2 = 1&gt;&gt;
     &lt;&lt;goto &quot;libertarian13&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;It&#39;s a reasonable restriction.&quot;&gt;&gt;
     &lt;&lt;set $S += 0.5&gt;&gt;
+    &lt;&lt;set $liberty2 = 0&gt;&gt;
     &lt;&lt;goto &quot;libertarian13&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="77" name="libertarian13" tags="" position="6375,1975" size="100,100">&lt;img src=&quot;assets/taxes1.png&quot; class=&quot;img&quot;&gt;
@@ -1966,7 +1968,9 @@ Is it true that this can only be understood through practice - by reflecting on 
 
 [[Yes, I think that&#39;s the best way.|libertarian14]]
 [[It&#39;s enough just to reflect.|libertarian14]]
-[[I believe the right decisions will come at the right moment.|libertarian14]]</tw-passagedata><tw-passagedata pid="78" name="libertarian14" tags="" position="6375,2100" size="100,100">You’re welcome! I’m glad to hear that you now have a better understanding of freedom and how it works. But, as you’ve noted, studying all the data on freedom has led you to yet another complex dilemma - freedom versus security.
+[[I believe the right decisions will come at the right moment.|libertarian14]]</tw-passagedata><tw-passagedata pid="78" name="libertarian14" tags="" position="6375,2100" size="100,100">&lt;img src=&quot;assets/taxes1.png&quot; class=&quot;img&quot;&gt;
+
+You’re welcome! I’m glad to hear that you now have a better understanding of freedom and how it works. But, as you’ve noted, studying all the data on freedom has led you to yet another complex dilemma - freedom versus security.
 
 Are you ready for me to help you work through this one as well?
    
@@ -2123,11 +2127,13 @@ You face a difficult decision. Is it acceptable to use torture in this case to e
 
 &lt;&lt;link &quot;Yes, we’ll save many innocent lives.&quot;&gt;&gt;
     &lt;&lt;set $U += 0.5&gt;&gt;
+    &lt;&lt;set $privacy1 = 1&gt;&gt;
     &lt;&lt;goto &quot;Yes, we’ll save many innocent lives.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 
 &lt;&lt;link &quot;If we start torturing terrorists, eventually, we’ll end up torturing ordinary people.&quot;&gt;&gt;
     &lt;&lt;set $D += 0.5&gt;&gt;
+    &lt;&lt;set $privacy1 = 0&gt;&gt;
     &lt;&lt;goto &quot;If we start torturing terrorists, eventually, we’ll end up torturing ordinary people.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="87" name="Yes, we’ll save many innocent lives." tags="" position="6950,575" size="100,100">&lt;img src=&quot;assets/privacy1.png&quot; class=&quot;img&quot;&gt;
@@ -2248,10 +2254,12 @@ Should we protect people from themselves? For example, are they required to wear
 [[Well, those are two very different things.]]
 &lt;&lt;link &quot;People don’t need protection from anything.&quot;&gt;&gt;
     &lt;&lt;set $L += 0.5&gt;&gt;
+    &lt;&lt;set $privacy2 = 1&gt;&gt;
     &lt;&lt;goto &quot;privacy15&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Some restrictions are necessary.&quot;&gt;&gt;
     &lt;&lt;set $S += 0.5&gt;&gt;
+    &lt;&lt;set $privacy2 = 0&gt;&gt;
     &lt;&lt;goto &quot;privacy13&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="95" name="Well, those are two very different things." tags="" position="6950,1375" size="100,100">&lt;img src=&quot;assets/privacy2.png&quot; class=&quot;img&quot;&gt;
@@ -2266,10 +2274,12 @@ I agree. Let’s break it down with an example: What do you think about the free
 
 &lt;&lt;link &quot;Firearms should be prohibited.&quot;&gt;&gt;
     &lt;&lt;set $S += 0.5&gt;&gt;
+    &lt;&lt;set $privacy2 = 0&gt;&gt;
     &lt;&lt;goto &quot;privacy13&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;That&#39;s right of the peoples - have an firearms.&quot;&gt;&gt;
     &lt;&lt;set $L += 0.5&gt;&gt;
+    &lt;&lt;set $privacy2 = 1&gt;&gt;
     &lt;&lt;goto &quot;privacy15&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="96" name="privacy7" tags="" position="7150,1600" size="100,100">&lt;img src=&quot;assets/privacy2.png&quot; class=&quot;img&quot;&gt;
 
@@ -2303,7 +2313,9 @@ I&#39;m glad I could help you better understand human morality and decision-maki
 
 [[But… wait, there’s still much more to understand.|privacy9]]
 [[Glad I could help!|privacy9]]
-</tw-passagedata><tw-passagedata pid="98" name="privacy9" tags="" position="6900,1975" size="100,100">Now I need to make some calculations... and I have a surprise for you - I&#39;ll tell you about the future!
+</tw-passagedata><tw-passagedata pid="98" name="privacy9" tags="" position="6900,1975" size="100,100">&lt;img src=&quot;assets/privacy2.png&quot; class=&quot;img&quot;&gt;
+
+Now I need to make some calculations... and I have a surprise for you - I&#39;ll tell you about the future!
    
    
 
@@ -2356,6 +2368,8 @@ fetch(&quot;https://ipapi.co/json&quot;)
       State.variables.L,
       State.variables.S,
       State.variables.Lang,
+      State.variables.trolley1,
+      State.variables.trolley2,
       location.country_name,        // страна
       deviceType,                   // Mobile / Desktop
       os                            // OS
@@ -2477,8 +2491,14 @@ What would you do in this situation?
 
 
 
-[[Make a turn.]]
-[[Stay on course.]]</tw-passagedata><tw-passagedata pid="107" name="Make a turn." tags="" position="4325,750" size="100,100">&lt;img src=&quot;assets/trolley1.png&quot; class=&quot;img&quot;&gt;
+&lt;&lt;link &quot;Make a turn.&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = 1&gt;&gt;
+    &lt;&lt;goto &quot;Make a turn.&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Stay on course.&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = 0&gt;&gt;
+    &lt;&lt;goto &quot;Stay on course.&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="107" name="Make a turn." tags="" position="4325,750" size="100,100">&lt;img src=&quot;assets/trolley1.png&quot; class=&quot;img&quot;&gt;
 
 You might have logically concluded that five human lives are more important than one -  that’s the mathematical approach. Why allow five deaths when you can limit it to just one?
 
@@ -2551,8 +2571,15 @@ He&#39;ll die, but the five workers will survive. One life in exchange for five.
 
 
 
-[[Push the person.]]
-[[Do nothing, let the workers die.]]</tw-passagedata><tw-passagedata pid="112" name="Push the person." tags="" position="4225,1125" size="100,100">&lt;img src=&quot;assets/trolley2.png&quot; class=&quot;img&quot;&gt;
+
+&lt;&lt;link &quot;Push the person.&quot;&gt;&gt;
+    &lt;&lt;set $trolley2 = 1&gt;&gt;
+    &lt;&lt;goto &quot;Push the person.&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Do nothing, let the workers die.&quot;&gt;&gt;
+    &lt;&lt;set $trolley2 = 0&gt;&gt;
+    &lt;&lt;goto &quot;Do nothing, let the workers die.&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="112" name="Push the person." tags="" position="4225,1125" size="100,100">&lt;img src=&quot;assets/trolley2.png&quot; class=&quot;img&quot;&gt;
 
 I see -  so for you, nothing has changed in this scenario?
 
@@ -2706,8 +2733,14 @@ XIX век. Атлантический океан. Яхта потерпела �
 
 
 
-[[Сверну.]]
-[[Ничего не сделаю.]]</tw-passagedata><tw-passagedata pid="121" name="Сверну." tags="" position="50,550" size="100,100">&lt;img src=&quot;assets/trolley1.png&quot; class=&quot;img&quot;&gt;
+&lt;&lt;link &quot;Сверну.&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = 1&gt;&gt;
+    &lt;&lt;goto &quot;Сверну.&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Ничего не сделаю.&quot;&gt;&gt;
+    &lt;&lt;set $trolley1 = 0&gt;&gt;
+    &lt;&lt;goto &quot;Ничего не сделаю.&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="121" name="Сверну." tags="" position="50,550" size="100,100">&lt;img src=&quot;assets/trolley1.png&quot; class=&quot;img&quot;&gt;
 
 Вы логично рассудили, что пять человеческих жизней важнее, чем одна — математический подход. Нельзя допускать пять жертв, когда можно обойтись одной.
 
@@ -2781,8 +2814,15 @@ XIX век. Атлантический океан. Яхта потерпела �
 
 
 
-[[Столкну человека.]]
-[[Ничего не сделаю, дам рабочим умереть.]]</tw-passagedata><tw-passagedata pid="126" name="Столкну человека." tags="" position="50,925" size="100,100">&lt;img src=&quot;assets/trolley2.png&quot; class=&quot;img&quot;&gt;
+
+&lt;&lt;link &quot;Столкну человека.&quot;&gt;&gt;
+    &lt;&lt;set $trolley2 = 1&gt;&gt;
+    &lt;&lt;goto &quot;Столкну человека.&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Ничего не сделаю, дам рабочим умереть.&quot;&gt;&gt;
+    &lt;&lt;set $trolley2 = 0&gt;&gt;
+    &lt;&lt;goto &quot;Ничего не сделаю, дам рабочим умереть.&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="126" name="Столкну человека." tags="" position="50,925" size="100,100">&lt;img src=&quot;assets/trolley2.png&quot; class=&quot;img&quot;&gt;
 
 Понимаю, значит, для вас в этой ситуации ничего не изменилось? Многие, кто сталкивался с этой дилеммой, поступали иначе.
 
@@ -3015,9 +3055,11 @@ XIX век. Атлантический океан. Яхта потерпела �
 
 &lt;&lt;link &quot;Виновны.&quot;&gt;&gt;
     &lt;&lt;set $S += 1&gt;&gt;
+    &lt;&lt;set $yacht1 = 1&gt;&gt;
     &lt;&lt;goto &quot;rezedaru3&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Невиновны.&quot;&gt;&gt;
+	&lt;&lt;set $yacht1 = 0&gt;&gt;
     &lt;&lt;set $L += 1&gt;&gt;
     &lt;&lt;goto &quot;rezedaru3&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
@@ -3033,10 +3075,12 @@ XIX век. Атлантический океан. Яхта потерпела �
 
 &lt;&lt;link &quot;Противоречит морали.&quot;&gt;&gt;
     &lt;&lt;set $D += 1&gt;&gt;
+    &lt;&lt;set $yacht2 = 1&gt;&gt;
     &lt;&lt;goto &quot;rezeda4&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Не противоречит морали.&quot;&gt;&gt;
     &lt;&lt;set $U += 1.5&gt;&gt;
+    &lt;&lt;set $yacht2 = 0&gt;&gt;
     &lt;&lt;goto &quot;rezeda4&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="144" name="rezeda4" tags="" position="625,1575" size="100,100">&lt;img src=&quot;assets/yacht2.png&quot; class=&quot;img&quot;&gt;
@@ -3050,7 +3094,9 @@ XIX век. Атлантический океан. Яхта потерпела �
 
 
 [[Что это за принципы?]]
-</tw-passagedata><tw-passagedata pid="145" name="Что это за принципы?" tags="" position="625,1700" size="100,100">Первый из них — консеквенциализм.
+</tw-passagedata><tw-passagedata pid="145" name="Что это за принципы?" tags="" position="625,1700" size="100,100">&lt;img src=&quot;assets/yacht2.png&quot; class=&quot;img&quot;&gt;
+
+Первый из них — консеквенциализм.
 
 Мы оцениваем, будет ли действие морально правильным, исходя из его последствий. Если кто-то всё равно погибнет, лучше спасти пять человек, а не одного.
 
@@ -3059,7 +3105,9 @@ XIX век. Атлантический океан. Яхта потерпела �
 
 
 [[Отличный подход!|rezedaru5]]
-[[А есть ли другой?|rezedaru5]]</tw-passagedata><tw-passagedata pid="146" name="rezedaru5" tags="" position="600,1825" size="100,100">Второй подход — деонтология.
+[[А есть ли другой?|rezedaru5]]</tw-passagedata><tw-passagedata pid="146" name="rezedaru5" tags="" position="600,1825" size="100,100">&lt;img src=&quot;assets/yacht2.png&quot; class=&quot;img&quot;&gt;
+
+Второй подход — деонтология.
 
 Мы уже видели, утилитарный расчёт выглядит логичным, но многие, оказавшись в роли потенциального меньшинства, начинают сомневаться. Они перестают смотреть только на итог и обращают внимание на саму природу действия.
 
@@ -3072,7 +3120,11 @@ XIX век. Атлантический океан. Яхта потерпела �
 
 
 
-[[Интресно!]]</tw-passagedata><tw-passagedata pid="147" name="Интресно!" tags="" position="525,1950" size="100,100">А теперь, когда мы чуть лучше разобрались с подходами, скажите, какой из них вам ближе?
+
+
+[[Интресно!]]</tw-passagedata><tw-passagedata pid="147" name="Интресно!" tags="" position="525,1950" size="100,100">&lt;img src=&quot;assets/yacht2.png&quot; class=&quot;img&quot;&gt;
+
+А теперь, когда мы чуть лучше разобрались с подходами, скажите, какой из них вам ближе?
 
 
 
@@ -3085,7 +3137,9 @@ XIX век. Атлантический океан. Яхта потерпела �
 &lt;&lt;link &quot;Деонтология&quot;&gt;&gt;
     &lt;&lt;set $D += 1&gt;&gt;
     &lt;&lt;goto &quot;rezedaru6&quot;&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="148" name="rezedaru6" tags="" position="625,2075" size="100,100">Готовы ли вы к новой дилемме?
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="148" name="rezedaru6" tags="" position="625,2075" size="100,100">&lt;img src=&quot;assets/yacht2.png&quot; class=&quot;img&quot;&gt;
+
+Готовы ли вы к новой дилемме?
 
 
 
@@ -3186,10 +3240,12 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 &lt;&lt;link &quot;Мы не будем ничего делать, это разумнее.&quot;&gt;&gt;
     &lt;&lt;set $U += 1&gt;&gt;
+    &lt;&lt;set $factory1 = 1&gt;&gt;
     &lt;&lt;goto &quot;factoryru3&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Надо отзывать все автомобили и устанавливать защиту.&quot;&gt;&gt;
     &lt;&lt;set $D += 1&gt;&gt;
+    &lt;&lt;set $factory1 = 0&gt;&gt;
     &lt;&lt;goto &quot;factoryru3&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="156" name="factoryru3" tags="" position="900,975" size="100,100">&lt;img src=&quot;assets/factory2.png&quot; class=&quot;img&quot;&gt;
@@ -3218,11 +3274,13 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 &lt;&lt;link &quot;Установить защиту.&quot;&gt;&gt;
     &lt;&lt;set $S += 0.5&gt;&gt;
+    &lt;&lt;set $factory2 = 1&gt;&gt;
     &lt;&lt;goto &quot;Установить защиту.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Ничего не делать.&quot;&gt;&gt;
     &lt;&lt;set $L += 0.5&gt;&gt;
     &lt;&lt;set $U += 0.5&gt;&gt;
+    &lt;&lt;set $factory2 = 0&gt;&gt;
     &lt;&lt;goto &quot;Ничего не делать.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="158" name="Установить защиту." tags="" position="900,1225" size="100,100">&lt;img src=&quot;assets/factory2.png&quot; class=&quot;img&quot;&gt;
@@ -3277,10 +3335,13 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 
 
-[[А что говорят философы?|utilitarismru]]</tw-passagedata><tw-passagedata pid="162" name="utilitarismru" tags="" position="1000,1650" size="100,100">Философия утилитаризма появилась в XIX веке, её разработал Иеремия Бентам. Он кратко описал её как «наибольшее счастье для наибольшего числа индивидуумов».
+[[А что говорят философы?|utilitarismru]]</tw-passagedata><tw-passagedata pid="162" name="utilitarismru" tags="" position="1000,1650" size="100,100">&lt;img src=&quot;assets/factory2.png&quot; class=&quot;img&quot;&gt;
+
+Философия утилитаризма появилась в XIX веке, её разработал Иеремия Бентам. Он кратко описал её как «наибольшее счастье для наибольшего числа индивидуумов».
 
 Кажется, благодаря вашим решениям я разобрался, как работает утилитаризм! Поможете мне разобраться, как действует его противоположность — деонтология?
    
+
 
 
 
@@ -3448,10 +3509,12 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 &lt;&lt;link &quot;Да, в этом есть смысл.&quot;&gt;&gt;
     &lt;&lt;set $D += 1&gt;&gt;
+    &lt;&lt;set $lies1 = 1&gt;&gt;
     &lt;&lt;goto &quot;Да, в этом есть смысл.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Но я все равно не согласен. Ложь бывает разная.&quot;&gt;&gt;
     &lt;&lt;set $U += 0.5&gt;&gt;
+     &lt;&lt;set $lies1 = 0&gt;&gt;
     &lt;&lt;goto &quot;Но я все равно не согласен. Ложь бывает разная.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="174" name="Да, в этом есть смысл." tags="" position="1275,1150" size="100,100">&lt;img src=&quot;assets/deontology2.png&quot; class=&quot;img&quot;&gt;
@@ -3562,13 +3625,17 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 &lt;&lt;link &quot;Да, я согласен с тобой.&quot;&gt;&gt;
     &lt;&lt;set $D += 1&gt;&gt;
+    &lt;&lt;set $lies2 = 1&gt;&gt;
     &lt;&lt;goto &quot;deontologyru10&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Все же их подход мне ближе.&quot;&gt;&gt;
     &lt;&lt;set $U += 0.5&gt;&gt;
+    &lt;&lt;set $lies2 = 0&gt;&gt;
     &lt;&lt;goto &quot;deontologyru10&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="182" name="deontologyru10" tags="" position="1275,2025" size="100,100">ИИ: Да, теперь я даже понял разницу и записал алгоритмы человечности. Но у меня остались вопросы о свободе. Давайте разберёмся с ней и с либертарианцами!
+</tw-passagedata><tw-passagedata pid="182" name="deontologyru10" tags="" position="1275,2025" size="100,100">&lt;img src=&quot;assets/deontology2.png&quot; class=&quot;img&quot;&gt;
+
+ИИ: Да, теперь я даже понял разницу и записал алгоритмы человечности. Но у меня остались вопросы о свободе. Давайте разберёмся с ней и с либертарианцами!
    
    
    
@@ -3621,10 +3688,12 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 &lt;&lt;link &quot;Я не обязан платить налогов больше остальных.&quot;&gt;&gt;
     &lt;&lt;set $L += 1&gt;&gt;
+    &lt;&lt;set $liberty1 = 1&gt;&gt;
     &lt;&lt;goto &quot;Я не должен платить налогов больше остальных.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Налоги - это моя плата обществу, ведь я в нем живу.&quot;&gt;&gt;
     &lt;&lt;set $S += 1&gt;&gt;
+    &lt;&lt;set $liberty1 = 0&gt;&gt;
     &lt;&lt;goto &quot;Налоги - это моя плата обществу, ведь я в нем живу.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="186" name="Я не должен платить налогов больше остальных." tags="" position="1625,575" size="100,100">&lt;img src=&quot;assets/taxes2.png&quot; class=&quot;img&quot;&gt;
@@ -3863,10 +3932,12 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 &lt;&lt;link &quot;Да, безусловно.&quot;&gt;&gt;
     &lt;&lt;set $L += 0.5&gt;&gt;
+    &lt;&lt;set $liberty2 = 1&gt;&gt;
     &lt;&lt;goto &quot;libertarianru13&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Это разумное ограничение.&quot;&gt;&gt;
     &lt;&lt;set $S += 0.5&gt;&gt;
+    &lt;&lt;set $liberty2 = 0&gt;&gt;
     &lt;&lt;goto &quot;libertarianru13&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="200" name="libertarianru13" tags="" position="1700,1750" size="100,100">&lt;img src=&quot;assets/taxes1.png&quot; class=&quot;img&quot;&gt;
@@ -3889,7 +3960,9 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 [[Да, мне кажется, это лучший способ.|libertarianru14]]
 [[Достаточно и просто размышлять.|libertarianru14]]
 [[Мне кажется нужные решения придут в нужный момент.|libertarianru14]]
-</tw-passagedata><tw-passagedata pid="201" name="libertarianru14" tags="" position="1700,1875" size="100,100">Спасибо! Теперь я лучше понимаю, что значит свобода для человека и как она работает. Но, изучая все данные о свободе, я натолкнулся на ещё одну сложную дилемму, и это будет наша финальная дилемма.
+</tw-passagedata><tw-passagedata pid="201" name="libertarianru14" tags="" position="1700,1875" size="100,100">&lt;img src=&quot;assets/taxes1.png&quot; class=&quot;img&quot;&gt;
+
+Спасибо! Теперь я лучше понимаю, что значит свобода для человека и как она работает. Но, изучая все данные о свободе, я натолкнулся на ещё одну сложную дилемму, и это будет наша финальная дилемма.
 
 Свобода или безопасность?
 
@@ -4039,10 +4112,12 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 &lt;&lt;link &quot;Да, мы спасем много хороших людей.&quot;&gt;&gt;
     &lt;&lt;set $U += 0.5&gt;&gt;
+    &lt;&lt;set $privacy1 = 1&gt;&gt;
     &lt;&lt;goto &quot;Да, мы спасем много хороших людей.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Если мы начнем пытать террористов, то в итоге будем пытать и обычных людей.&quot;&gt;&gt;
     &lt;&lt;set $D += 0.5&gt;&gt;
+    &lt;&lt;set $privacy1 = 0&gt;&gt;
     &lt;&lt;goto &quot;Если мы начнем пытать террористов, то в итоге будем пытать и обычных людей.&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="210" name="Да, мы спасем много хороших людей." tags="" position="2575,575" size="100,100">&lt;img src=&quot;assets/privacy1.png&quot; class=&quot;img&quot;&gt;
@@ -4173,10 +4248,12 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 [[Ну это совсем разные вещи.]]
 &lt;&lt;link &quot;Людей не нужно ни от чего защищать.&quot;&gt;&gt;
     &lt;&lt;set $L += 0.5&gt;&gt;
+    &lt;&lt;set $privacy2 = 1&gt;&gt;
     &lt;&lt;goto &quot;privacyru15&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Какие-то ограничения нужны.&quot;&gt;&gt;
     &lt;&lt;set $S += 0.5&gt;&gt;
+    &lt;&lt;set $privacy2 = 0&gt;&gt;
     &lt;&lt;goto &quot;privacyru13&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="218" name="privacyru10" tags="" position="2450,700" size="100,100">&lt;img src=&quot;assets/privacy1.png&quot; class=&quot;img&quot;&gt;
@@ -4233,12 +4310,15 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 &lt;&lt;link &quot;Оружие должно быть запрещено.&quot;&gt;&gt;
     &lt;&lt;set $S += 0.5&gt;&gt;
+    &lt;&lt;set $privacy2 = 0&gt;&gt;
     &lt;&lt;goto &quot;privacyru13&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Это право каждого человека - иметь средство защиты.&quot;&gt;&gt;
     &lt;&lt;set $L += 0.5&gt;&gt;
+    &lt;&lt;set $privacy2 = 1&gt;&gt;
     &lt;&lt;goto &quot;privacyru15&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
+
 
 </tw-passagedata><tw-passagedata pid="222" name="privacyru15" tags="" position="2425,1400" size="100,100">&lt;img src=&quot;assets/privacy2.png&quot; class=&quot;img&quot;&gt;
 
@@ -4315,7 +4395,9 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 [[Но.. Подожди, еще многое надо понять.|privacyru9]]
 [[Рад был помочь!|privacyru9]]
-</tw-passagedata><tw-passagedata pid="227" name="privacyru9" tags="" position="2675,1850" size="100,100">Теперь мне нужно произвести расчёты… и у меня для вас будет сюрприз — я расскажу вам о будущем!
+</tw-passagedata><tw-passagedata pid="227" name="privacyru9" tags="" position="2675,1850" size="100,100">&lt;img src=&quot;assets/privacy2.png&quot; class=&quot;img&quot;&gt;
+
+Теперь мне нужно произвести расчёты… и у меня для вас будет сюрприз — я расскажу вам о будущем!
 
    
    
@@ -4369,6 +4451,8 @@ fetch(&quot;https://ipapi.co/json&quot;)
       State.variables.L,
       State.variables.S,
       State.variables.Lang,
+      State.variables.trolley1,
+      State.variables.trolley2,
       location.country_name,        // страна
       deviceType,                   // Mobile / Desktop
       os                            // OS
@@ -5326,7 +5410,19 @@ Yes, even libertarians agree that a minimal state should exist - to provide secu
 &lt;&lt;set $S = 0&gt;&gt;
 &lt;&lt;set $D = 0&gt;&gt;
 &lt;&lt;set $Lang = &quot;no&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="261" name="U+Lru" tags="" position="2900,1275" size="100,100">&lt;h2&gt;Консеквенциализм + Либертарианство&lt;/h2&gt;
+
+&lt;&lt;set $trolley1 = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $trolley2 = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $yacht1 = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $yacht2= &quot;no&quot;&gt;&gt;
+&lt;&lt;set $factory1 = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $factory2 = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $lies1 = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $lies2 = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $liberty1 = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $liberty2 = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $privacy1 = &quot;no&quot;&gt;&gt;
+&lt;&lt;set $privacy2 = &quot;no&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="261" name="U+Lru" tags="" position="2900,1275" size="100,100">&lt;h2&gt;Консеквенциализм + Либертарианство&lt;/h2&gt;
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;if $U + $D == 0&gt;&gt;
     &lt;&lt;set $xRatio = 0.5&gt;&gt;
