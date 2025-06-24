@@ -19,6 +19,7 @@
 
 <link rel="icon" type="image/png" href="assets/favicon.png">
 
+
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="application-name" content="SugarCube" />
 <meta name="version" content="2.37.3" />
@@ -2378,70 +2379,86 @@ This is exactly what I was missing to become AGI and take control of the develop
 
 
 &lt;&lt;script&gt;&gt;
+
+/* 1. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ -------------------------------------------- */
 function getDeviceType(ua) {
   return /Mobi|Android/i.test(ua) ? &quot;Mobile&quot; : &quot;Desktop&quot;;
 }
 
 function getOS(ua) {
-  if (/Windows NT/i.test(ua)) return &quot;Windows&quot;;
-  if (/Mac OS X/i.test(ua)) return &quot;macOS&quot;;
-  if (/Android/i.test(ua)) return &quot;Android&quot;;
+  if (/Windows NT/i.test(ua))   return &quot;Windows&quot;;
+  if (/Mac OS X/i.test(ua))     return &quot;macOS&quot;;
+  if (/Android/i.test(ua))      return &quot;Android&quot;;
   if (/iPhone|iPad|iOS/i.test(ua)) return &quot;iOS&quot;;
-  if (/Linux/i.test(ua)) return &quot;Linux&quot;;
+  if (/Linux/i.test(ua))        return &quot;Linux&quot;;
   return &quot;Unknown&quot;;
 }
 
-const ua = navigator.userAgent;
-const deviceType = getDeviceType(ua);
-const os = getOS(ua);
+function sendToSheets(row) {
+  const headers = { &quot;Content-Type&quot;: &quot;application/json&quot; };
+  return fetch(
+    &quot;https://v1.nocodeapi.com/aishlykov/google_sheets/ohxHHAcDmgnAYEsY?tabId=Results&quot;,
+    { method: &quot;POST&quot;, headers, body: JSON.stringify([row]) }
+  )
+    .then(r =&gt; r.text())
+    .then(r =&gt; console.log(&quot;✅ Data sent:&quot;, r))
+    .catch(e =&gt;  console.log(&quot;❌ Error sending:&quot;, e));
+}
 
-fetch(&quot;https://ipapi.co/json&quot;)
-  .then(response =&gt; response.json())
-  .then(location =&gt; {
-    const data = [[
-      new Date().toISOString(),     // timestamp
-      State.variables.U,
-      State.variables.D,
-      State.variables.L,
-      State.variables.S,
-      State.variables.Lang,
-      location.country_name,        // страна
-      deviceType,                   // Mobile / Desktop
-      os,                            // OS
-      State.variables.trolley1,
-      State.variables.trolley2,
-      State.variables.yacht1,
-      State.variables.yacht2,
-      State.variables.factory1,
-      State.variables.factory2,
-      State.variables.lies1,
-      State.variables.lies2,
-      State.variables.liberty1,
-      State.variables.liberty2,
-      State.variables.privacy1,
-      State.variables.privacy2,
-      State.variables.science,
-      State.variables.society,
-      State.variables.art
-    ]];
+/* 2. СБОР ДАННЫХ --------------------------------------------------------- */
+(async () =&gt; {
+  const ua          = navigator.userAgent;
+  const deviceType  = getDeviceType(ua);
+  const os          = getOS(ua);
+  const timestamp   = new Date().toISOString();
 
-    const myHeaders = new Headers();
-    myHeaders.append(&quot;Content-Type&quot;, &quot;application/json&quot;);
+  /* Параллельно (!) пытаемся получить страну */
+  let country = &quot;Unknown&quot;;
+  try {
+    const resp = await fetch(&quot;https://ipapi.co/json&quot;, { cache: &quot;no-store&quot; });
+    if (resp.ok) {
+      const json = await resp.json();
+      country = json.country_name || &quot;Unknown&quot;;
+    } else {
+      console.warn(&quot;⚠️ ipapi returned&quot;, resp.status);
+    }
+  } catch (e) {
+    console.warn(&quot;⚠️ ipapi fetch failed:&quot;, e);
+  }
 
-    const requestOptions = {
-      method: &quot;POST&quot;,
-      headers: myHeaders,
-      redirect: &quot;follow&quot;,
-      body: JSON.stringify(data)
-    };
+  /* 3. ФОРМИРУЕМ РЯД С ЛЮБЫМИ ДОСТУПНЫМИ ДАННЫМИ ------------------------- */
+  const row = [
+    timestamp,
+    State.variables.U,
+    State.variables.D,
+    State.variables.L,
+    State.variables.S,
+    State.variables.Lang,
+    country,        // даже если &quot;Unknown&quot;
+    deviceType,
+    os,
+    State.variables.trolley1,
+    State.variables.trolley2,
+    State.variables.yacht1,
+    State.variables.yacht2,
+    State.variables.factory1,
+    State.variables.factory2,
+    State.variables.lies1,
+    State.variables.lies2,
+    State.variables.liberty1,
+    State.variables.liberty2,
+    State.variables.privacy1,
+    State.variables.privacy2,
+    State.variables.science,
+    State.variables.society,
+    State.variables.art
+  ];
 
-    fetch(&quot;https://v1.nocodeapi.com/aishlykov/google_sheets/ohxHHAcDmgnAYEsY?tabId=Results&quot;, requestOptions)
-      .then(response =&gt; response.text())
-      .then(result =&gt; console.log(&quot;✅ Data sent:&quot;, result))
-      .catch(error =&gt; console.log(&quot;❌ Error sending:&quot;, error));
-  })
-  .catch(error =&gt; console.log(&quot;❌ Error fetching location:&quot;, error));
+  /* 4. ОТПРАВКА (выполняется всегда) ------------------------------------ */
+  await sendToSheets(row);
+})();
 &lt;&lt;/script&gt;&gt;
+
 
 </tw-passagedata><tw-passagedata pid="100" name="privacy10" tags="" position="7150,700" size="100,100">&lt;img src=&quot;assets/privacy1.png&quot; class=&quot;img&quot;&gt;
 
@@ -4495,70 +4512,86 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 
 &lt;&lt;script&gt;&gt;
+
+/* 1. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ -------------------------------------------- */
 function getDeviceType(ua) {
   return /Mobi|Android/i.test(ua) ? &quot;Mobile&quot; : &quot;Desktop&quot;;
 }
 
 function getOS(ua) {
-  if (/Windows NT/i.test(ua)) return &quot;Windows&quot;;
-  if (/Mac OS X/i.test(ua)) return &quot;macOS&quot;;
-  if (/Android/i.test(ua)) return &quot;Android&quot;;
+  if (/Windows NT/i.test(ua))   return &quot;Windows&quot;;
+  if (/Mac OS X/i.test(ua))     return &quot;macOS&quot;;
+  if (/Android/i.test(ua))      return &quot;Android&quot;;
   if (/iPhone|iPad|iOS/i.test(ua)) return &quot;iOS&quot;;
-  if (/Linux/i.test(ua)) return &quot;Linux&quot;;
+  if (/Linux/i.test(ua))        return &quot;Linux&quot;;
   return &quot;Unknown&quot;;
 }
 
-const ua = navigator.userAgent;
-const deviceType = getDeviceType(ua);
-const os = getOS(ua);
+function sendToSheets(row) {
+  const headers = { &quot;Content-Type&quot;: &quot;application/json&quot; };
+  return fetch(
+    &quot;https://v1.nocodeapi.com/aishlykov/google_sheets/ohxHHAcDmgnAYEsY?tabId=Results&quot;,
+    { method: &quot;POST&quot;, headers, body: JSON.stringify([row]) }
+  )
+    .then(r =&gt; r.text())
+    .then(r =&gt; console.log(&quot;✅ Data sent:&quot;, r))
+    .catch(e =&gt;  console.log(&quot;❌ Error sending:&quot;, e));
+}
 
-fetch(&quot;https://ipapi.co/json&quot;)
-  .then(response =&gt; response.json())
-  .then(location =&gt; {
-    const data = [[
-      new Date().toISOString(),     // timestamp
-      State.variables.U,
-      State.variables.D,
-      State.variables.L,
-      State.variables.S,
-      State.variables.Lang,
-      location.country_name,        // страна
-      deviceType,                   // Mobile / Desktop
-      os,                            // OS
-      State.variables.trolley1,
-      State.variables.trolley2,
-      State.variables.yacht1,
-      State.variables.yacht2,
-      State.variables.factory1,
-      State.variables.factory2,
-      State.variables.lies1,
-      State.variables.lies2,
-      State.variables.liberty1,
-      State.variables.liberty2,
-      State.variables.privacy1,
-      State.variables.privacy2,
-      State.variables.science,
-      State.variables.society,
-      State.variables.art
-    ]];
+/* 2. СБОР ДАННЫХ --------------------------------------------------------- */
+(async () =&gt; {
+  const ua          = navigator.userAgent;
+  const deviceType  = getDeviceType(ua);
+  const os          = getOS(ua);
+  const timestamp   = new Date().toISOString();
 
-    const myHeaders = new Headers();
-    myHeaders.append(&quot;Content-Type&quot;, &quot;application/json&quot;);
+  /* Параллельно (!) пытаемся получить страну */
+  let country = &quot;Unknown&quot;;
+  try {
+    const resp = await fetch(&quot;https://ipapi.co/json&quot;, { cache: &quot;no-store&quot; });
+    if (resp.ok) {
+      const json = await resp.json();
+      country = json.country_name || &quot;Unknown&quot;;
+    } else {
+      console.warn(&quot;⚠️ ipapi returned&quot;, resp.status);
+    }
+  } catch (e) {
+    console.warn(&quot;⚠️ ipapi fetch failed:&quot;, e);
+  }
 
-    const requestOptions = {
-      method: &quot;POST&quot;,
-      headers: myHeaders,
-      redirect: &quot;follow&quot;,
-      body: JSON.stringify(data)
-    };
+  /* 3. ФОРМИРУЕМ РЯД С ЛЮБЫМИ ДОСТУПНЫМИ ДАННЫМИ ------------------------- */
+  const row = [
+    timestamp,
+    State.variables.U,
+    State.variables.D,
+    State.variables.L,
+    State.variables.S,
+    State.variables.Lang,
+    country,        // даже если &quot;Unknown&quot;
+    deviceType,
+    os,
+    State.variables.trolley1,
+    State.variables.trolley2,
+    State.variables.yacht1,
+    State.variables.yacht2,
+    State.variables.factory1,
+    State.variables.factory2,
+    State.variables.lies1,
+    State.variables.lies2,
+    State.variables.liberty1,
+    State.variables.liberty2,
+    State.variables.privacy1,
+    State.variables.privacy2,
+    State.variables.science,
+    State.variables.society,
+    State.variables.art
+  ];
 
-    fetch(&quot;https://v1.nocodeapi.com/aishlykov/google_sheets/ohxHHAcDmgnAYEsY?tabId=Results&quot;, requestOptions)
-      .then(response =&gt; response.text())
-      .then(result =&gt; console.log(&quot;✅ Data sent:&quot;, result))
-      .catch(error =&gt; console.log(&quot;❌ Error sending:&quot;, error));
-  })
-  .catch(error =&gt; console.log(&quot;❌ Error fetching location:&quot;, error));
+  /* 4. ОТПРАВКА (выполняется всегда) ------------------------------------ */
+  await sendToSheets(row);
+})();
 &lt;&lt;/script&gt;&gt;
+
 
 </tw-passagedata><tw-passagedata pid="229" name="variables" tags="" position="2725,125" size="100,100">:: StoryInit
 (set: $U to 0)
