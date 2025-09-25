@@ -133,8 +133,10 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 <style id="style-ui-debug-bar" type="text/css">#debug-bar{background-color:#222;border-left:1px solid #444;border-top:1px solid #444;bottom:0;margin:0;max-height:95%;max-width:66em;min-width:300px;padding:.5em;position:fixed;right:0;z-index:99900}#debug-bar>div:not([id])+div{margin-top:.5em}#debug-bar>div>label{margin-right:.5em}#debug-bar>div>input[type=text]{min-width:8em;width:14em}#debug-bar>div>select{width:22em}#debug-bar-toggle{color:#eee;background-color:#222;border:1px solid #444;height:calc(100% + 1px);left:calc(-2em - 1px);position:absolute;top:-1px;width:2em}#debug-bar-toggle:hover{background-color:#333;border-color:#eee}#debug-bar-hint{bottom:.75em;font-size:4.5em;opacity:.33;pointer-events:none;position:fixed;right:.6em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;white-space:nowrap}#debug-bar-watch{background-color:#222;border-left:1px solid #444;border-top:1px solid #444;bottom:calc(100% + 1px);font-size:.9em;left:-1px;max-height:280%;max-height:calc(95vh - 100%);position:absolute;overflow-x:hidden;overflow-y:scroll;right:0;z-index:99800}#debug-bar-watch[hidden]{display:none}#debug-bar-watch div{color:#999;font-style:italic;margin:1em auto;text-align:center}#debug-bar-watch table{width:100%}#debug-bar-watch tr:nth-child(2n){background-color:rgba(127,127,127,.15)}#debug-bar-watch td{padding:.2em 0}#debug-bar-watch td:first-child+td{padding:.2em .3em .2em .1em}#debug-bar-watch .watch-delete{background-color:transparent;border:none;color:#c00}#debug-bar-watch-all,#debug-bar-watch-clear{margin-left:.5em}#debug-bar-views-toggle,#debug-bar-watch-toggle{color:#eee;background-color:transparent;border:1px solid #444;margin-right:1em;padding:.4em}#debug-bar-views-toggle:hover,#debug-bar-watch-toggle:hover{background-color:#333;border-color:#eee}#debug-bar-watch:not([hidden])~div #debug-bar-watch-toggle,html[data-debug-view] #debug-bar-views-toggle{background-color:#282;border-color:#4a4}#debug-bar-watch:not([hidden])~div #debug-bar-watch-toggle:hover,html[data-debug-view] #debug-bar-views-toggle:hover{background-color:#4a4;border-color:#6c6}#debug-bar-hint::after,#debug-bar-passage-play::before,#debug-bar-toggle::before,#debug-bar-views-toggle::after,#debug-bar-watch .watch-delete::before,#debug-bar-watch-add::before,#debug-bar-watch-all::before,#debug-bar-watch-clear::before,#debug-bar-watch-toggle::after{font-family:sc-icons!important;font-style:normal;font-weight:400;font-variant:normal;line-height:1;speak:never;text-rendering:auto;text-transform:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}#debug-bar-toggle::before{content:"\f188"}#debug-bar-hint::after{content:"\f188\202f\f061"}#debug-bar-watch .watch-delete::before{content:"\f00d"}#debug-bar-watch-add::before{content:"\f067"}#debug-bar-watch-all::before{content:"\f0d0"}#debug-bar-watch-clear::before{content:"\f2ed"}#debug-bar-views-toggle::after,#debug-bar-watch-toggle::after{content:"\f204";margin-left:.35em}#debug-bar-watch:not([hidden])~div #debug-bar-watch-toggle::after,html[data-debug-view] #debug-bar-views-toggle::after{content:"\f205"}#debug-bar-passage-play::before{content:"\f04b"}</style>
 <style id="style-ui-debug-views" type="text/css">html[data-debug-view] .debug{padding:.25em;background-color:#234}html[data-debug-view] .debug[title]{cursor:help}html[data-debug-view] .debug.block{display:inline-block;vertical-align:middle}html[data-debug-view] .debug.invalid{text-decoration:line-through}html[data-debug-view] .debug.hidden,html[data-debug-view] .debug.hidden .debug{background-color:#555}html:not([data-debug-view]) .debug.hidden{display:none}html[data-debug-view] .debug[data-name][data-type].nonvoid::after,html[data-debug-view] .debug[data-name][data-type]::before{background-color:rgba(0,0,0,.25);font-family:monospace,monospace;white-space:pre}html[data-debug-view] .debug[data-name][data-type]::before{content:attr(data-name)}html[data-debug-view] .debug[data-name][data-type|=macro]::before{content:"<<" attr(data-name) ">>"}html[data-debug-view] .debug[data-name][data-type|=macro].nonvoid::after{content:"<</" attr(data-name) ">>"}html[data-debug-view] .debug[data-name][data-type|=html]::before{content:"<" attr(data-name) ">"}html[data-debug-view] .debug[data-name][data-type|=html].nonvoid::after{content:"</" attr(data-name) ">"}html[data-debug-view] .debug[data-name][data-type]:not(:empty)::before{margin-right:.25em}html[data-debug-view] .debug[data-name][data-type].nonvoid:not(:empty)::after{margin-left:.25em}html[data-debug-view] .debug[data-name][data-type|=special],html[data-debug-view] .debug[data-name][data-type|=special]::before{display:block}</style>
 </head>
+
 <body>
-   <!-- Google Tag Manager (noscript) -->
+
+ <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZRQ4JRZ"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
@@ -1161,6 +1163,9 @@ Are you ready for a new dilemma?
 
 &lt;&lt;link &quot;Let&#39;s try!&quot;&gt;&gt;
     &lt;&lt;set $dot2Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;stage1_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;factory&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="26" name="factory" tags="" position="5425,200" size="100,100">&lt;img src=&quot;assets/factory1.png&quot; class=&quot;img&quot;&gt;
@@ -1405,6 +1410,9 @@ Now, will you help me figure out how its opposite, deontology works?
 
 &lt;&lt;link &quot;I&#39;m in!&quot;&gt;&gt;
     &lt;&lt;set $dot3Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;stage2_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;Deontology&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="Deontology" tags="" position="5825,200" size="100,100">&lt;img src=&quot;assets/deontology1.png&quot; class=&quot;img&quot;&gt;
 
@@ -1745,6 +1753,9 @@ But I still have questions about freedom. Let’s dive into that - and into the 
 
 &lt;&lt;link &quot;Let’s do it!&quot;&gt;&gt;
     &lt;&lt;set $dot4Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;stage3_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;Libertarian&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Libertarian" tags="" position="6225,200" size="100,100">&lt;img src=&quot;assets/taxes2.png&quot; class=&quot;img&quot;&gt;
 
@@ -2060,6 +2071,9 @@ Are you ready for me to help you work through this one as well?
 
 &lt;&lt;link &quot;Let&#39;s finish!&quot;&gt;&gt;
     &lt;&lt;set $dot5Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;stage4_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;Privacy&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="79" name="Privacy" tags="" position="6925,225" size="100,100">&lt;img src=&quot;assets/privacy1.png&quot; class=&quot;img&quot;&gt;
 
@@ -2402,27 +2416,30 @@ Now I need to make some calculations... and I have a surprise for you - I&#39;ll
 
 &lt;&lt;link &quot;I&#39;m excited!&quot;&gt;&gt;
     &lt;&lt;set $dot5Color = &quot;green&quot;&gt;&gt;
-       &lt;&lt;if $U &lt; 3&gt;&gt;
+	 &lt;&lt;if $U &lt; 3&gt;&gt;
         &lt;&lt;set $science = 0&gt;&gt;
-    &lt;&lt;elseif $U &gt; 6&gt;&gt;
+    &lt;&lt;elseif $U &gt; 5&gt;&gt;
         &lt;&lt;set $science = 2&gt;&gt;
     &lt;&lt;else&gt;&gt;
         &lt;&lt;set $science = 1&gt;&gt;
     &lt;&lt;/if&gt;&gt;
         &lt;&lt;if $L &gt; 5&gt;&gt;
-        &lt;&lt;set 4society = 0&gt;&gt;
-    &lt;&lt;elseif $S &gt; 6&gt;&gt;
+        &lt;&lt;set $society = 0&gt;&gt;
+    &lt;&lt;elseif $S &gt; 5&gt;&gt;
         &lt;&lt;set $society = 2&gt;&gt;
     &lt;&lt;else&gt;&gt;
         &lt;&lt;set $society = 1&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-        &lt;&lt;if $U &gt; 5&gt;&gt;
+        &lt;&lt;if $U &gt; 4&gt;&gt;
         &lt;&lt;set $art = 0&gt;&gt;
-    &lt;&lt;elseif $D &gt; 6&gt;&gt;
+    &lt;&lt;elseif $D &gt; 5&gt;&gt;
         &lt;&lt;set $art = 2&gt;&gt;
     &lt;&lt;else&gt;&gt;
         &lt;&lt;set $art = 1&gt;&gt;
     &lt;&lt;/if&gt;&gt;
+    &lt;&lt;run setup.track(&#39;stage5_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;Endgame&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="99" name="Endgame" tags="" position="7500,200" size="100,100">&lt;img src=&quot;assets/ai.png&quot; class=&quot;img&quot;&gt;
 
@@ -2769,6 +2786,9 @@ Ready to begin?
 
 &lt;&lt;link &quot;Let&#39;s start!&quot;&gt;&gt;
     &lt;&lt;set $dot1Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;tutorial_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;Rezeda&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="116" name="I’m just an observer." tags="" position="4350,1250" size="100,100">&lt;img src=&quot;assets/trolley2.png&quot; class=&quot;img&quot;&gt;
 
@@ -2786,6 +2806,9 @@ Ready to begin?
 
 &lt;&lt;link &quot;Let&#39;s start!&quot;&gt;&gt;
     &lt;&lt;set $dot1Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;tutorial_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;Rezeda&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 
@@ -2808,6 +2831,9 @@ Ready to begin?
 
 &lt;&lt;link &quot;Let&#39;s start!&quot;&gt;&gt;
     &lt;&lt;set $dot1Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;tutorial_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;Rezeda&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="118" name="trolleyru" tags="" position="50,300" size="100,100">&lt;img src=&quot;assets/trolley1.png&quot; class=&quot;img&quot;&gt;
 
@@ -2998,6 +3024,9 @@ XIX век. Атлантический океан. Яхта потерпела �
 
 &lt;&lt;link &quot;Давай начнём!&quot;&gt;&gt;
     &lt;&lt;set $dot1Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;tutorial_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;rezedaru&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="130" name="Если я толкну человека - я совершу убийство." tags="" position="300,1000" size="100,100">&lt;img src=&quot;assets/trolley2.png&quot; class=&quot;img&quot;&gt;
 
@@ -3011,6 +3040,9 @@ XIX век. Атлантический океан. Яхта потерпела �
 
 &lt;&lt;link &quot;Давай начнём!&quot;&gt;&gt;
     &lt;&lt;set $dot1Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;tutorial_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;rezedaru&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 </tw-passagedata><tw-passagedata pid="131" name="rezedaru2" tags="" position="425,450" size="100,100">&lt;img src=&quot;assets/yacht1.png&quot; class=&quot;img&quot;&gt;
@@ -3276,6 +3308,9 @@ XIX век. Атлантический океан. Яхта потерпела �
 
 &lt;&lt;link &quot;Начнём!&quot;&gt;&gt;
     &lt;&lt;set $dot2Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;stage1_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;factoruru&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="149" name="factoruru" tags="" position="900,100" size="100,100">&lt;img src=&quot;assets/factory1.png&quot; class=&quot;img&quot;&gt;
 
@@ -3478,6 +3513,9 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 &lt;&lt;link &quot;Давай разбремся!&quot;&gt;&gt;
     &lt;&lt;set $dot3Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;stage2_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;deontologyru&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="163" name="factoryru5" tags="" position="1025,1350" size="100,100">&lt;img src=&quot;assets/factory2.png&quot; class=&quot;img&quot;&gt;
 
@@ -3777,6 +3815,9 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 &lt;&lt;link &quot;Давай!&quot;&gt;&gt;
     &lt;&lt;set $dot4Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;stage3_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;libertarianru&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 
@@ -4103,6 +4144,9 @@ $11 за деталь*12,5 млн машин = $137 миллионов
 
 &lt;&lt;link &quot;Давай разберемся!&quot;&gt;&gt;
     &lt;&lt;set $dot5Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;stage4_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;privacyru&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="202" name="privacyru" tags="" position="2450,200" size="100,100">&lt;img src=&quot;assets/privacy1.png&quot; class=&quot;img&quot;&gt;
 
@@ -4538,25 +4582,28 @@ $11 за деталь*12,5 млн машин = $137 миллионов
     &lt;&lt;set $dot5Color = &quot;green&quot;&gt;&gt;
     &lt;&lt;if $U &lt; 3&gt;&gt;
         &lt;&lt;set $science = 0&gt;&gt;
-    &lt;&lt;elseif $U &gt; 6&gt;&gt;
+    &lt;&lt;elseif $U &gt; 5&gt;&gt;
         &lt;&lt;set $science = 2&gt;&gt;
     &lt;&lt;else&gt;&gt;
         &lt;&lt;set $science = 1&gt;&gt;
     &lt;&lt;/if&gt;&gt;
         &lt;&lt;if $L &gt; 5&gt;&gt;
         &lt;&lt;set $society = 0&gt;&gt;
-    &lt;&lt;elseif $S &gt; 6&gt;&gt;
+    &lt;&lt;elseif $S &gt; 5&gt;&gt;
         &lt;&lt;set $society = 2&gt;&gt;
     &lt;&lt;else&gt;&gt;
         &lt;&lt;set $society = 1&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-        &lt;&lt;if $U &gt; 5&gt;&gt;
+        &lt;&lt;if $U &gt; 4&gt;&gt;
         &lt;&lt;set $art = 0&gt;&gt;
-    &lt;&lt;elseif $D &gt; 6&gt;&gt;
+    &lt;&lt;elseif $D &gt; 5&gt;&gt;
         &lt;&lt;set $art = 2&gt;&gt;
     &lt;&lt;else&gt;&gt;
         &lt;&lt;set $art = 1&gt;&gt;
     &lt;&lt;/if&gt;&gt;
+    &lt;&lt;run setup.track(&#39;stage5_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;endgameru&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="228" name="endgameru" tags="" position="3100,200" size="100,100">&lt;img src=&quot;assets/ai.png&quot; class=&quot;img&quot;&gt;
 
@@ -5129,6 +5176,10 @@ function sendToSheets(row) {
         &lt;&lt;goto &quot;D+Sru&quot;&gt;&gt;
     &lt;&lt;elseif $U &lt; $D and $L &gt;= $S&gt;&gt;
         &lt;&lt;goto &quot;D+Lru&quot;&gt;&gt;
+        &lt;&lt;run setup.track(&#39;result_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
+
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;U+Sru&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
@@ -5816,6 +5867,9 @@ Yes, even libertarians agree that a minimal state should exist - to provide secu
 
 &lt;&lt;link &quot;Давай начнём!&quot;&gt;&gt;
     &lt;&lt;set $dot1Color = &quot;green&quot;&gt;&gt;
+    &lt;&lt;run setup.track(&#39;tutorial_complete&#39;, {
+  passage: State.passage
+})&gt;&gt;
     &lt;&lt;goto &quot;rezedaru&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="263" name="Что? Я отказываюсь! Надо ещё пытаться!" tags="" position="425,825" size="100,100">&lt;img src=&quot;assets/yacht1.png&quot; class=&quot;img&quot;&gt;
 
