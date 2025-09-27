@@ -10,6 +10,7 @@ GitHub Pages for hosting
 
 ## Sources
 [Harvard's Course: Justice with Michael J. Sandel](https://sandel.scholars.harvard.edu/justice)
+
 [Case of a car factory](https://scholars.fhsu.edu/cgi/viewcontent.cgi?article=1104&context=jiibr)
 
 ## License
